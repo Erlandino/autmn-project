@@ -1,0 +1,8 @@
+/*
+ *   This file contains layout styling shared across all pages
+ *
+ * * * */
+
+ * {
+    box-sizing: border-box;
+ }
