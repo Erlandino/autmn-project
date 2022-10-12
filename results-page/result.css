@@ -1,43 +1,49 @@
-/*
- *   This file contains styling specific to the result page
- *
- * * * */
+/* Resetting sizing of all elements to 0, centering all elements width and changing text color to white*/
 * {
   margin: 0;
   padding: 0;
   box-sizing: border-box;
   text-align: center;
-  /* color: white; */
+  color: white;
 }
 
+/* Uses space between to split elements across page while fitting screen, also changes background color*/
 body {
   height: 100%;
   display: flex;
   flex-direction: column;
   justify-content: space-between;
+  background-color: #141a26;
 }
 
+/* font size + underline */
 h1 {
   font-size: 60px;
   text-decoration: 1px underline;
   text-underline-offset: 16px;
 }
+
+/* color */
 .title-word-one {
   color: #a6f20d;
 }
 
+/* font size */
 h3 {
   font-size: 32px;
 }
 
+/* font size */
 .name {
   font-size: 24px;
 }
 
+/* font size */
 p {
   font-size: 18px;
 }
 
+/* color + font size */
 .score {
   font-size: 96;
   color: #a6f20d;
