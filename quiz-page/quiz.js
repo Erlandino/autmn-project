@@ -4,7 +4,7 @@
  *
  * * * */
 
-console.log("Welcome to the quiz part")
+
 
 /* Randomize array in-place using Durstenfeld shuffle algorithm */
 function shuffleArray(array) {
@@ -15,6 +15,7 @@ function shuffleArray(array) {
 		array[j] = temp;
 	}
 }
+
 
 const questionTemplates = [
 
@@ -60,8 +61,8 @@ const solarFacts = [
 	yearLength: 123,
 	diameter: 123,
 	mass: 123,
-	surfaceTempMin: -123,
-	surfaceTempMax: 123
+	surfaceTempMin: null,
+	surfaceTempMax: null
 },
 {
 	name: "Venus",
@@ -94,53 +95,64 @@ const solarFacts = [
 	classification: 2, //0=planet, 1=gas giant, 2=natural satellite, 3=asteroid
 	orbitBody: "Earth", //what this object orbits around
 	orbitProximityOrder: 1, //the order this appears among other objects orbiting the same object
-	apoapsis: 123, //furhtest part of orbit
-	periapsis: 234, //closest part of orbit
-	yearLength: 123,
-	diameter: 123,
-	mass: 123,
-	surfaceTempMin: -456,
-	surfaceTempMax: 456
+	apoapsis: 405400, //furhtest part of orbit
+	periapsis: 362600, //closest part of orbit
+	yearLength: "27:00:00:00",
+	diameter: null,
+	mass: null,
+	surfaceTempMin: -247,
+	surfaceTempMax: 120,
+	magnitudeMin: -2.5,
+	magnitudeMax: -12.9,
+	satellites: 0,
+	discovered: null
 },
 
 {
 	name: "Mars",
 	classification: 0, //0=planet, 1=gas giant, 2=natural satellite, 3=asteroid
 	orbitBody: "Sun", //what this object orbits around
-	orbitProximityOrder: 4, //the order this appears among other objects orbiting the same object
-	apoapsis: 123, //furhtest part of orbit
-	periapsis: 234, //closest part of orbit
-	yearLength: 123,
-	diameter: 123,
-	mass: 123,
-	surfaceTempMin: -567,
-	surfaceTempMax: 567
+	apoapsis: 249261000, //furhtest part of orbit
+	periapsis: 206650000, //closest part of orbit
+	yearLength: "687:00:00:00",
+	diameter: null,
+	mass: null,
+	surfaceTempMin: -110,
+	surfaceTempMax: 35,
+	magnitudeMin: -2.94,
+	magnitudeMax: 1.86,
+	satellites: 2,
+	discovered: null
 },
 {
 	name: "Phobos",
 	classification: 2, //0=planet, 1=gas giant, 2=natural satellite, 3=asteroid
 	orbitBody: "Mars", //what this object orbits around
-	orbitProximityOrder: 1, //the order this appears among other objects orbiting the same object
-	apoapsis: 123, //furhtest part of orbit
-	periapsis: 234, //closest part of orbit
-	yearLength: 123,
-	diameter: 123,
-	mass: 123,
-	surfaceTempMin: -678,
-	surfaceTempMax: 678
+	apoapsis: 9517.58, //furhtest part of orbit
+	periapsis: 9234.42, //closest part of orbit
+	yearLength: "00:07:39:00",
+	diameter: null,
+	mass: null,
+	surfaceTempMin: -112,
+	surfaceTempMax: -4,
+	magnitude: 11.8,
+	satellites: 0,
+	discovered: "1877-08-18"
 },
 {
 	name: "Deimos",
 	classification: 2, //0=planet, 1=gas giant, 2=natural satellite, 3=asteroid
 	orbitBody: "Mars", //what this object orbits around
-	orbitProximityOrder: 2, //the order this appears among other objects orbiting the same object
-	apoapsis: 123, //furhtest part of orbit
-	periapsis: 234, //closest part of orbit
-	yearLength: 123,
-	diameter: 123,
-	mass: 123,
-	surfaceTempMin: -789,
-	surfaceTempMax: 789
+	apoapsis: 23470.9, //furhtest part of orbit
+	periapsis: 23455.5, //closest part of orbit
+	yearLength: "00:30:24:00",
+	diameter: null,
+	mass: null,
+	surfaceTempMin: null,
+	surfaceTempMax: null,
+	magnitude: 12.89,
+	satellites: 0,
+	discovered: "1877-08-12"
 },
 
 ]
@@ -149,18 +161,17 @@ console.log(solarFacts)
 //shuffle the order of question templates
 shuffleArray(questionTemplates)
 
-const quizLength = 10; //define how many questions to output
-const quizOptionCount = 4 //define the maximum number of options the user will have
+const quizLimit = 10; //define how many questions to output
+const optionMax = 4 //define the maximum number of options the user will have
 let questionSets = [] //initialize variable for question output
 let quizOptions = [] //initialize variable for answer choice options
-let choiceoptionType = "name" //initialize variable for what the answer choice options should be labelled
 let currentTemplate = -1 //initialize counter for which question template we shall use
 let currentQuestion = {} //initialize temporary variable for creating objest during loop
-let highestValue = 0 //initialize variable used for determining correct answer in a highestValue type question
-let comparisonProperty = "name" //initialize variable for determining which property to compare
+let recordValue = null //initialize variable used for determining correct answer in a highestValue type question
+let compareValue = "name" //initialize variable for determining which property to compare
 
 
-for(let i = 0; i < quizLength; i++) {
+for(let i = 0; i < quizLimit; i++) {
 	console.log("loop iteration: " + i)
 
 	//reset the object
@@ -171,11 +182,16 @@ for(let i = 0; i < quizLength; i++) {
 		currentTemplate = 0
 	}
 
+	//define how many answer options we can create with the current template
+//todo: fix bug causing this limit to be ignored
+	optionLimit = solarFacts.filter(x => x[`${questionTemplates[currentTemplate].comparisonProperty}`] != null).length
+
+	console.log("max options: " + optionMax)
 	console.log("template: " + currentTemplate)
 
 	//update output object with question text and score value
 	currentQuestion.text = questionTemplates[currentTemplate].text
-	currentQuestion.score = questionTemplates[currentTemplate].score + 50 * quizOptionCount
+	currentQuestion.score = questionTemplates[currentTemplate].score + 50 * optionLimit
 	
 	//reset option array for this loop iteration
 	quizOptions = []
@@ -191,55 +207,62 @@ for(let i = 0; i < quizLength; i++) {
 
 		case "highestValue":
 
-			recordValue = 0
+			recordValue = null
 
 			//grab answer options from the solarFacts array until we have enough
-			for(let currentChoiceOption = 0; quizOptions.length < quizOptionCount; currentChoiceOption++) {
+			for(let currentChoiceOption = 0; quizOptions.length <= optionLimit && quizOptions.length <= optionMax; currentChoiceOption++) {
 
-				comparisonProperty = solarFacts[currentChoiceOption][`${questionTemplates[currentTemplate].comparisonProperty}`]
+				//determine which property we will be comparing
+				compareValue = solarFacts[currentChoiceOption][`${questionTemplates[currentTemplate].comparisonProperty}`]
+				optionLabel = solarFacts[currentChoiceOption][optionType]
 
-				//add the name of the current option to the answer choice output array
-				quizOptions.push(solarFacts[currentChoiceOption][optionType])
+				//check if the option has a valid value
+				if(compareValue != null) {
 
-				//check which item had the highest value
-				if(comparisonProperty > recordValue) {
+					//add the name of the current option to the answer choice output array
+					quizOptions.push(optionLabel)
 
-					//update highest value record
-					recordValue = comparisonProperty
+					//check which item had the highest value
+					if(compareValue > recordValue) {
 
+						//update highest value record
+						recordValue = compareValue
 
-					//set record holder as correct answer
-					correctAnswer = solarFacts[currentChoiceOption][optionType]
-
+						//set record holder as correct answer
+						correctAnswer = optionLabel
+					}
 				}
-
 			}
 
 		break
 
 		case "lowestValue":
 
-			recordValue = 0
+			recordValue = null
 
 			//grab answer options from the solarFacts array until we have enough
-			for(let currentChoiceOption = 0; quizOptions.length < quizOptionCount; currentChoiceOption++) {
+			for(let currentChoiceOption = 0; quizOptions.length <= optionLimit && quizOptions.length <= optionMax; currentChoiceOption++) {
 
-				comparisonProperty = solarFacts[currentChoiceOption][`${questionTemplates[currentTemplate].comparisonProperty}`]
+				//determine which property we will be comparing
+				compareValue = solarFacts[currentChoiceOption][`${questionTemplates[currentTemplate].comparisonProperty}`]
+				optionLabel = solarFacts[currentChoiceOption][optionType]
 
-				//add the name of the current option to the answer choice output array
-				quizOptions.push(solarFacts[currentChoiceOption][optionType])
+				//check if the option has a valid value
+				if(compareValue != null) {
 
-				//check which item had the lowest value
-				if(comparisonProperty < recordValue) {
+					//add the name of the current option to the answer choice output array
+					quizOptions.push(optionLabel)
 
-					//update lowest value record
-					recordValue = comparisonProperty
+					//check which item had the lowest value
+					if(compareValue < recordValue) {
 
-					//set record holder as correct answer
-					correctAnswer = solarFacts[currentChoiceOption][optionType]
+						//update lowest value record
+						recordValue = compareValue
 
+						//set record holder as correct answer
+						correctAnswer = optionLabel
+					}
 				}
-
 			}
 
 		break
@@ -250,32 +273,12 @@ for(let i = 0; i < quizLength; i++) {
 	currentQuestion.options = quizOptions
 	currentQuestion.answer = correctAnswer
 
-	console.log("current question:")
 	console.log(currentQuestion)
 
 	//add the question object to the output question set array
 	questionSets.push(currentQuestion)
 }
-console.log("final set of questions")
+
+console.log("Loop has finished")
+
 console.log(questionSets)
-
-//psuedo code:
-
-// let i = 1
-// let quizLength = 10
-// let questionId = 0
-// let questionText = "Which planet is called the 'Morning Star'?"
-// let optionId = 0
-// let optionText = "Mercury"
-
-
-
-//shuffle the order of the question array
-
-//make a new array from the first {quiz.length} elements of the question array,
-//while inserting answer options from solarfacts.json and
-//formatting the output to match the markup:
-
-
-// let optionloop = `<input id="question${question}option${optionId}" name="question${questionId}" type="radio" value="${optionId}" autocomplete="off" required><label for="question${questionId}option${optionId}">${optionText}</label>`
-// let sampleoutput = `<fieldset><h3>Question ${i} of ${quizLength}:</h3><p>${questionText}</p>` + optionloop + `<div class="options"></div></fieldset>`
