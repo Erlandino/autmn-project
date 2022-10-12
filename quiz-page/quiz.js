@@ -8,12 +8,12 @@ console.log("Welcome to the quiz part")
 
 /* Randomize array in-place using Durstenfeld shuffle algorithm */
 function shuffleArray(array) {
-    for (var i = array.length - 1; i > 0; i--) {
-        var j = Math.floor(Math.random() * (i + 1));
-        var temp = array[i];
-        array[i] = array[j];
-        array[j] = temp;
-    }
+	for (var i = array.length - 1; i > 0; i--) {
+		var j = Math.floor(Math.random() * (i + 1));
+		var temp = array[i];
+		array[i] = array[j];
+		array[j] = temp;
+	}
 }
 
 const questionTemplates = [
@@ -26,8 +26,14 @@ const questionTemplates = [
 */
  { text: "Which of the following is <strong>the hottest</strong>?",
    type: "highestValue",
-   compare: "surfaceTempMax",
-   options: "astronomicalBody",
+   comparisonProperty: "surfaceTempMax",
+   optionType: "name",
+   score: 140 },
+
+ { text: "Which of the following is <strong>the coldest</strong>?",
+   type: "lowestValue",
+   comparisonProperty: "surfaceTempMin",
+   optionType: "name",
    score: 140 },
 
  // { text: "Which of the following is <strong>closest to the Sun</strong>?",
@@ -45,96 +51,96 @@ console.log(classification)
 const solarFacts = [
 
 {
-    name: "Mercury",
-    classification: 0, //0=planet, 1=gas giant, 2=natural satellite, 3=asteroid
-    orbitBody: "Sun", //what this object orbits around
-    orbitProximityOrder: 1, //the order this appears among other objects orbiting the same object
-    apoapsis: 123, //furhtest part of orbit
-    periapsis: 234, //closest part of orbit
-    yearLength: 123,
-    diameter: 123,
-    mass: 123,
-    surfaceTempMin: 123,
-    surfaceTempMax: 123
+	name: "Mercury",
+	classification: 0, //0=planet, 1=gas giant, 2=natural satellite, 3=asteroid
+	orbitBody: "Sun", //what this object orbits around
+	orbitProximityOrder: 1, //the order this appears among other objects orbiting the same object
+	apoapsis: 123, //furhtest part of orbit
+	periapsis: 234, //closest part of orbit
+	yearLength: 123,
+	diameter: 123,
+	mass: 123,
+	surfaceTempMin: -123,
+	surfaceTempMax: 123
 },
 {
-    name: "Venus",
-    classification: 0, //0=planet, 1=gas giant, 2=natural satellite, 3=asteroid
-    orbitBody: "Sun", //what this object orbits around
-    orbitProximityOrder: 2, //the order this appears among other objects orbiting the same object
-    apoapsis: 123, //furhtest part of orbit
-    periapsis: 234, //closest part of orbit
-    yearLength: 123,
-    diameter: 123,
-    mass: 123,
-    surfaceTempMin: 123,
-    surfaceTempMax: 234
+	name: "Venus",
+	classification: 0, //0=planet, 1=gas giant, 2=natural satellite, 3=asteroid
+	orbitBody: "Sun", //what this object orbits around
+	orbitProximityOrder: 2, //the order this appears among other objects orbiting the same object
+	apoapsis: 123, //furhtest part of orbit
+	periapsis: 234, //closest part of orbit
+	yearLength: 123,
+	diameter: 123,
+	mass: 123,
+	surfaceTempMin: -234,
+	surfaceTempMax: 234
 },
 {
-    name: "Earth",
-    classification: 0, //0=planet, 1=gas giant, 2=natural satellite, 3=asteroid
-    orbitBody: "Sun", //what this object orbits around
-    orbitProximityOrder: 3, //the order this appears among other objects orbiting the same object
-    apoapsis: 123, //furhtest part of orbit
-    periapsis: 234, //closest part of orbit
-    yearLength: 123,
-    diameter: 123,
-    mass: 123,
-    surfaceTempMin: 123,
-    surfaceTempMax: 345
+	name: "Earth",
+	classification: 0, //0=planet, 1=gas giant, 2=natural satellite, 3=asteroid
+	orbitBody: "Sun", //what this object orbits around
+	orbitProximityOrder: 3, //the order this appears among other objects orbiting the same object
+	apoapsis: 123, //furhtest part of orbit
+	periapsis: 234, //closest part of orbit
+	yearLength: 123,
+	diameter: 123,
+	mass: 123,
+	surfaceTempMin: -345,
+	surfaceTempMax: 345
 },
 {
-    name: "The Moon",
-    classification: 2, //0=planet, 1=gas giant, 2=natural satellite, 3=asteroid
-    orbitBody: "Earth", //what this object orbits around
-    orbitProximityOrder: 1, //the order this appears among other objects orbiting the same object
-    apoapsis: 123, //furhtest part of orbit
-    periapsis: 234, //closest part of orbit
-    yearLength: 123,
-    diameter: 123,
-    mass: 123,
-    surfaceTempMin: 123,
-    surfaceTempMax: 456
+	name: "The Moon",
+	classification: 2, //0=planet, 1=gas giant, 2=natural satellite, 3=asteroid
+	orbitBody: "Earth", //what this object orbits around
+	orbitProximityOrder: 1, //the order this appears among other objects orbiting the same object
+	apoapsis: 123, //furhtest part of orbit
+	periapsis: 234, //closest part of orbit
+	yearLength: 123,
+	diameter: 123,
+	mass: 123,
+	surfaceTempMin: -456,
+	surfaceTempMax: 456
 },
 
 {
-    name: "Mars",
-    classification: 0, //0=planet, 1=gas giant, 2=natural satellite, 3=asteroid
-    orbitBody: "Sun", //what this object orbits around
-    orbitProximityOrder: 4, //the order this appears among other objects orbiting the same object
-    apoapsis: 123, //furhtest part of orbit
-    periapsis: 234, //closest part of orbit
-    yearLength: 123,
-    diameter: 123,
-    mass: 123,
-    surfaceTempMin: 123,
-    surfaceTempMax: 567
+	name: "Mars",
+	classification: 0, //0=planet, 1=gas giant, 2=natural satellite, 3=asteroid
+	orbitBody: "Sun", //what this object orbits around
+	orbitProximityOrder: 4, //the order this appears among other objects orbiting the same object
+	apoapsis: 123, //furhtest part of orbit
+	periapsis: 234, //closest part of orbit
+	yearLength: 123,
+	diameter: 123,
+	mass: 123,
+	surfaceTempMin: -567,
+	surfaceTempMax: 567
 },
 {
-    name: "Phobos",
-    classification: 2, //0=planet, 1=gas giant, 2=natural satellite, 3=asteroid
-    orbitBody: "Mars", //what this object orbits around
-    orbitProximityOrder: 1, //the order this appears among other objects orbiting the same object
-    apoapsis: 123, //furhtest part of orbit
-    periapsis: 234, //closest part of orbit
-    yearLength: 123,
-    diameter: 123,
-    mass: 123,
-    surfaceTempMin: 123,
-    surfaceTempMax: 678
+	name: "Phobos",
+	classification: 2, //0=planet, 1=gas giant, 2=natural satellite, 3=asteroid
+	orbitBody: "Mars", //what this object orbits around
+	orbitProximityOrder: 1, //the order this appears among other objects orbiting the same object
+	apoapsis: 123, //furhtest part of orbit
+	periapsis: 234, //closest part of orbit
+	yearLength: 123,
+	diameter: 123,
+	mass: 123,
+	surfaceTempMin: -678,
+	surfaceTempMax: 678
 },
 {
-    name: "Deimos",
-    classification: 2, //0=planet, 1=gas giant, 2=natural satellite, 3=asteroid
-    orbitBody: "Mars", //what this object orbits around
-    orbitProximityOrder: 2, //the order this appears among other objects orbiting the same object
-    apoapsis: 123, //furhtest part of orbit
-    periapsis: 234, //closest part of orbit
-    yearLength: 123,
-    diameter: 123,
-    mass: 123,
-    surfaceTempMin: 123,
-    surfaceTempMax: 789
+	name: "Deimos",
+	classification: 2, //0=planet, 1=gas giant, 2=natural satellite, 3=asteroid
+	orbitBody: "Mars", //what this object orbits around
+	orbitProximityOrder: 2, //the order this appears among other objects orbiting the same object
+	apoapsis: 123, //furhtest part of orbit
+	periapsis: 234, //closest part of orbit
+	yearLength: 123,
+	diameter: 123,
+	mass: 123,
+	surfaceTempMin: -789,
+	surfaceTempMax: 789
 },
 
 ]
@@ -146,7 +152,8 @@ shuffleArray(questionTemplates)
 const quizLength = 10; //define how many questions to output
 const quizOptionCount = 4 //define the maximum number of options the user will have
 let questionSets = [] //initialize variable for question output
-let choiceOptions = [] //initialize variable for answer choice options
+let quizOptions = [] //initialize variable for answer choice options
+let choiceoptionType = "name" //initialize variable for what the answer choice options should be labelled
 let currentTemplate = -1 //initialize counter for which question template we shall use
 let currentQuestion = {} //initialize temporary variable for creating objest during loop
 let highestValue = 0 //initialize variable used for determining correct answer in a highestValue type question
@@ -154,76 +161,100 @@ let comparisonProperty = "name" //initialize variable for determining which prop
 
 
 for(let i = 0; i < quizLength; i++) {
-    console.log("loop iteration: " + i)
+	console.log("loop iteration: " + i)
 
-    //reset the object
-    currentQuestion = {}
+	//reset the object
+	currentQuestion = {}
 
-    //make sure we dont try to pick a question template which does not exist
-    if(++currentTemplate === questionTemplates.length) {
-        currentTemplate = 0
-    }
+	//make sure we dont try to pick a question template which does not exist
+	if(++currentTemplate === questionTemplates.length) {
+		currentTemplate = 0
+	}
 
-    console.log("template: " + currentTemplate)
+	console.log("template: " + currentTemplate)
 
-    //add text description of current question to output array object
-    currentQuestion.name = questionTemplates[currentTemplate].text
+	//update output object with question text and score value
+	currentQuestion.text = questionTemplates[currentTemplate].text
+	currentQuestion.score = questionTemplates[currentTemplate].score + 50 * quizOptionCount
+	
+	//reset option array for this loop iteration
+	quizOptions = []
 
-    //add score value of current question to output array object
-    currentQuestion.score = questionTemplates[currentTemplate].score + 50 * quizOptionCount
-    
-    //reset the array of choice options
-    choiceOptions = []
+	//set which label the options should have
+	optionType = questionTemplates[currentTemplate].optionType
 
-    //randomize the order items in the array we pull answer options from
-    shuffleArray(solarFacts)
+	//randomize the order items in the array we pull answer options from
+	shuffleArray(solarFacts)
 
-    //logic for handling different types of questions
-    switch(questionTemplates[currentTemplate].type) {
+	//logic for handling different types of questions
+	switch(questionTemplates[currentTemplate].type) {
 
-        case "highestValue":
+		case "highestValue":
 
-            comparisonProperty = questionTemplates[currentTemplate].compare
-            highestValue = 0
+			recordValue = 0
 
-            //grab answer options from the solarFacts array until we have enough
-            for(let ii = 0; choiceOptions.length < quizOptionCount; ii++) {
+			//grab answer options from the solarFacts array until we have enough
+			for(let currentChoiceOption = 0; quizOptions.length < quizOptionCount; currentChoiceOption++) {
 
-                
-// console.log("current max temp: " + solarFacts[ii][comparisonProperty])
+				comparisonProperty = solarFacts[currentChoiceOption][`${questionTemplates[currentTemplate].comparisonProperty}`]
 
-                if (solarFacts[ii][comparisonProperty] > 0) {
-                    choiceOptions.push(solarFacts[ii].name)
+				//add the name of the current option to the answer choice output array
+				quizOptions.push(solarFacts[currentChoiceOption][optionType])
 
-                    // console.log("pushed: " + solarFacts[ii].name)
+				//check which item had the highest value
+				if(comparisonProperty > recordValue) {
 
-                    //check which item had the highest value
-                    if(solarFacts[ii][comparisonProperty] > highestValue) {
+					//update highest value record
+					recordValue = comparisonProperty
 
-                        //update highest value record
-                        highestValue = solarFacts[ii][comparisonProperty]
 
-                        //set record holder as correct answer
-                        correctAnswer = solarFacts[ii].name
+					//set record holder as correct answer
+					correctAnswer = solarFacts[currentChoiceOption][optionType]
 
-                    }
-                }
-                // console.log("option count: " + choiceOptions.length)
-            }
+				}
 
-        break
-    }
+			}
 
-    //add the array of choice options to to output array object
-    currentQuestion.options = choiceOptions
+		break
 
-    currentQuestion.answer = correctAnswer
+		case "lowestValue":
 
-    console.log("current question:")
-    console.log(currentQuestion)
+			recordValue = 0
 
-    //add the question object to the question set output array
-    questionSets.push(currentQuestion)
+			//grab answer options from the solarFacts array until we have enough
+			for(let currentChoiceOption = 0; quizOptions.length < quizOptionCount; currentChoiceOption++) {
+
+				comparisonProperty = solarFacts[currentChoiceOption][`${questionTemplates[currentTemplate].comparisonProperty}`]
+
+				//add the name of the current option to the answer choice output array
+				quizOptions.push(solarFacts[currentChoiceOption][optionType])
+
+				//check which item had the lowest value
+				if(comparisonProperty < recordValue) {
+
+					//update lowest value record
+					recordValue = comparisonProperty
+
+					//set record holder as correct answer
+					correctAnswer = solarFacts[currentChoiceOption][optionType]
+
+				}
+
+			}
+
+		break
+
+	}
+
+	//update output object with the answer and option array
+	currentQuestion.options = quizOptions
+	currentQuestion.answer = correctAnswer
+
+	console.log("current question:")
+	console.log(currentQuestion)
+
+	//add the question object to the output question set array
+	questionSets.push(currentQuestion)
 }
 console.log("final set of questions")
 console.log(questionSets)
