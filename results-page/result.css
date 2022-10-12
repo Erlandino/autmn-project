@@ -69,3 +69,21 @@ footer {
 footer p {
   color: #a6f20d;
 }
+
+/* background circles with absolute position, responsive with width %, big is top left, small is bottom right*/
+.big-circle {
+  z-index: -1;
+  position: absolute;
+  top: 0px;
+  left: 0px;
+  width: 70%;
+}
+
+.small-circle {
+  z-index: -1;
+  position: absolute;
+  bottom: 0px;
+  right: 0px;
+  width: 40%;
+}
+/* circles end */
