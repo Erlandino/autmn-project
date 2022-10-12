@@ -7,6 +7,7 @@
   padding: 0;
   box-sizing: border-box;
   text-align: center;
+  /* color: white; */
 }
 
 body {
@@ -14,4 +15,30 @@ body {
   display: flex;
   flex-direction: column;
   justify-content: space-between;
+}
+
+h1 {
+  font-size: 60px;
+  text-decoration: 1px underline;
+  text-underline-offset: 16px;
+}
+.title-word-one {
+  color: #a6f20d;
+}
+
+h3 {
+  font-size: 32px;
+}
+
+.name {
+  font-size: 24px;
+}
+
+p {
+  font-size: 18px;
+}
+
+.score {
+  font-size: 96;
+  color: #a6f20d;
 }
