@@ -9,6 +9,7 @@
 
 /* Uses space between to split elements across page while fitting screen, also changes background color*/
 body {
+  padding: 60px 0;
   height: 100%;
   display: flex;
   flex-direction: column;
@@ -36,6 +37,7 @@ h3 {
 /* font size */
 .name {
   font-size: 24px;
+  color: #8779da;
 }
 
 /* font size */
@@ -46,5 +48,24 @@ p {
 /* color + font size */
 .score {
   font-size: 96;
+  color: #a6f20d;
+}
+
+/* adds spacing to all elements in container */
+.result-container * {
+  padding: 15px 0;
+}
+
+/* adds overline, limits with to 50% and re-centers footer, changes color of border */
+footer {
+  border-top: 1px solid;
+  margin: 0 auto;
+  padding-top: 10px;
+  width: 50%;
+  color: #8779da;
+}
+
+/* color */
+footer p {
   color: #a6f20d;
 }
