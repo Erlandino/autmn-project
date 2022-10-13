@@ -19,6 +19,7 @@ body {
   flex-direction: column;
   justify-content: space-between;
   background-color: #141a26;
+  font-family: "Open Sans", sans-serif;
 }
 
 /* font size + underline */
@@ -39,26 +40,22 @@ h3 {
 }
 
 /* font size */
-.name {
-  font-size: 24px;
-  color: #8779da;
-}
-
-/* font size */
 p {
   font-size: 18px;
 }
 
-/* color + font size */
-.score {
-  font-size: 96;
-  color: #a6f20d;
+/* form styling */
+.registration-form {
+  display: flex;
+  flex-direction: column;
 }
 
-/* adds spacing to all elements in container */
-.result-container * {
-  padding: 15px 0;
+/* form margin for input */
+.registration-form input {
+  margin: 15px 0;
 }
+
+/* forms styling end */
 
 /* adds overline, limits with to 50% and re-centers footer, changes color of border */
 footer {
