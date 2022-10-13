@@ -1,0 +1,112 @@
+/*
+ *   This file contains styling specific to the registration page
+ *
+ * * * */
+/* Resetting sizing of all elements to 0, centering all text and changing text color to white*/
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  text-align: center;
+  color: white;
+}
+
+/* changes background color*/
+body {
+  background-color: #141a26;
+  font-family: "Open Sans", sans-serif;
+}
+
+/* centers all elements in container, Uses space between to split elements across page while fitting screen*/
+.main-content-container {
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  padding: 60px 0;
+  margin: auto;
+  width: 320px;
+}
+/* font size + underline */
+h1 {
+  font-size: 60px;
+  text-decoration: 1px underline;
+  text-underline-offset: 16px;
+}
+
+/* color */
+.title-word-one {
+  color: #a6f20d;
+}
+
+/* font size */
+h3 {
+  font-size: 32px;
+}
+
+/* font size */
+p {
+  font-size: 18px;
+}
+.introduction-container p {
+  margin-top: 15px;
+}
+
+/* form styling */
+.registration-form {
+  display: flex;
+  flex-direction: column;
+  margin-top: 60px;
+}
+
+/* form margin for input */
+.registration-form input {
+  margin: 15px 0;
+  padding: 10px 0;
+  border-radius: 10px;
+  color: black;
+  border: none;
+  outline: none;
+}
+.registration-form button {
+  background-color: #5833a5;
+  padding: 15px 0;
+  border-radius: 10px;
+  cursor: pointer;
+  border: none;
+}
+
+/* forms styling end */
+
+/* adds overline, limits with to 50% and re-centers footer, changes color of border */
+footer {
+  border-top: 1px solid;
+  margin: 0 auto;
+  padding-top: 10px;
+  width: 50%;
+  color: #8779da;
+}
+
+/* color */
+footer p {
+  color: #a6f20d;
+}
+
+/* background circles with absolute position, responsive with width %, big is top left, small is bottom right*/
+.big-circle {
+  z-index: -1;
+  position: absolute;
+  top: 0px;
+  left: 0px;
+  width: 70%;
+  max-height: 100%;
+}
+
+.small-circle {
+  z-index: -1;
+  position: absolute;
+  bottom: 0px;
+  right: 0px;
+  width: 40%;
+}
+/* circles end */
