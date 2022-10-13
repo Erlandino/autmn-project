@@ -64,11 +64,16 @@ p {
   margin: 15px 0;
   padding: 10px 0;
   border-radius: 10px;
+  color: black;
+  border: none;
+  outline: none;
 }
 .registration-form button {
   background-color: #5833a5;
   padding: 15px 0;
   border-radius: 10px;
+  cursor: pointer;
+  border: none;
 }
 
 /* forms styling end */
