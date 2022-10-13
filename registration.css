@@ -2,3 +2,58 @@
  *   This file contains styling specific to the registration page
  *
  * * * */
+/*body {
+  background-color: black;
+}*/
+#quiz {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  align-items: center;
+  text-align: center;
+  border: 2px black solid;
+  padding: 20px;
+  width: 250px;
+  height: 600px;
+  margin: 0 auto;
+  background: linear-gradient(#5833a5, black);
+}
+.btn1 {
+  align-items: center;
+  width: 200px;
+  height: 25px;
+  background: #5833a5;
+  border-radius: 10px;
+  text-decoration-color: aliceblue;
+}
+
+.input {
+  width: 200px;
+  height: 25px;
+  font-family: "Times New Roman", Times, serif;
+  font-size: 18px;
+  line-height: 25px;
+  align-items: center;
+  color: white;
+  border-radius: 10px;
+}
+h3 {
+  text-align: center;
+  margin-bottom: 15px;
+  color: white;
+}
+footer {
+  color: #a6f200;
+  border-bottom: white;
+}
+h2 {
+  text-align: center;
+  margin-bottom: 25px;
+  text-decoration: solid;
+  color: white;
+}
+p {
+  text-align: center;
+  margin-bottom: 15px;
+  color: white;
+}
