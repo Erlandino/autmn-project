@@ -151,17 +151,18 @@ const questionTemplates = [
 	comparisonProperty: "distance",
 	optionType: "name",
 	score: 140 },
-{
-	text: "Which of the following <strong>has the biggest surface area</strong>?",
-	type: "highestValue",
-	comparisonProperty: "area",
-	optionType: "name",
-	score: 140 },
-{
-	text: "Which of the following <strong>has the smallest surface area</strong>?",
-	type: "lowestValue",
-	comparisonProperty: "area",
-	optionType: "name",
-	score: 140 },
+//disabled due to wikipedia listing surface area using inconsistent scales
+// {
+// 	text: "Which of the following <strong>has the biggest surface area</strong>?",
+// 	type: "highestValue",
+// 	comparisonProperty: "area",
+// 	optionType: "name",
+// 	score: 140 },
+// {
+// 	text: "Which of the following <strong>has the smallest surface area</strong>?",
+// 	type: "lowestValue",
+// 	comparisonProperty: "area",
+// 	optionType: "name",
+// 	score: 140 },
 
 ]
