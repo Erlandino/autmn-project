@@ -2,7 +2,7 @@
  *   This file contains styling specific to the registration page
  *
  * * * */
-/* Resetting sizing of all elements to 0, centering all elements width and changing text color to white*/
+/* Resetting sizing of all elements to 0, centering all text and changing text color to white*/
 * {
   margin: 0;
   padding: 0;
@@ -11,17 +11,22 @@
   color: white;
 }
 
-/* Uses space between to split elements across page while fitting screen, also changes background color*/
+/* changes background color*/
 body {
-  padding: 60px 0;
-  height: 100%;
-  display: flex;
-  flex-direction: column;
-  justify-content: space-between;
   background-color: #141a26;
   font-family: "Open Sans", sans-serif;
 }
 
+/* centers all elements in container, Uses space between to split elements across page while fitting screen*/
+.main-content-container {
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  padding: 60px 0;
+  margin: auto;
+  width: 320px;
+}
 /* font size + underline */
 h1 {
   font-size: 60px;
@@ -43,16 +48,27 @@ h3 {
 p {
   font-size: 18px;
 }
+.introduction-container p {
+  margin-top: 15px;
+}
 
 /* form styling */
 .registration-form {
   display: flex;
   flex-direction: column;
+  margin-top: 60px;
 }
 
 /* form margin for input */
 .registration-form input {
   margin: 15px 0;
+  padding: 10px 0;
+  border-radius: 10px;
+}
+.registration-form button {
+  background-color: #5833a5;
+  padding: 15px 0;
+  border-radius: 10px;
 }
 
 /* forms styling end */
