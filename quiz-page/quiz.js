@@ -14,7 +14,8 @@ function shuffleArray(array) {
 	}
 }
 
-const classification = ["Planet", "Gas giant", "Natural satellite", "Asteroid"]
+const classification = ["Planet", "Gas giant", "Natural satellite", "Dwarf planet", "Ice giant"]
+const region = ["Inner planets", "Outer planets", "Asteroid belt", "Kuiper belt", "Scattered disc", "Sednoid"]
 const quizLimit = 10; //define how many questions to output
 const optionMax = 4 //define the maximum number of options the user will have
 let questionSets = [] //initialize variable for question output
