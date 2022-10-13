@@ -24,6 +24,7 @@ let currentTemplate = -1 //initialize counter for which question template we sha
 let currentQuestion = {} //initialize temporary variable for creating objest during loop
 let recordValue = null //initialize variable used for determining correct answer in a highestValue type question
 let compareValue = "name" //initialize variable for determining which property to compare
+let correctAnswer = ""
 
 //shuffle the order of question templates
 shuffleArray(questionTemplates)
@@ -66,28 +67,44 @@ for(let i = 0; i < quizLimit; i++) {
 
 			recordValue = null
 
+			console.log("highestvalue: resetting recordValue")
+
 			//grab answer options from the solarFacts array until we have enough
 			for(let currentChoiceOption = 0; quizOptions.length <= optionLimit && quizOptions.length <= optionMax; currentChoiceOption++) {
+
+				console.log("choice option loop iteration " + currentChoiceOption + ". current option count: " + quizOptions.length)
 
 				//determine which property we will be comparing
 				compareValue = solarFacts[currentChoiceOption][`${questionTemplates[currentTemplate].comparisonProperty}`]
 				optionLabel = solarFacts[currentChoiceOption][optionType]
 
-				//check if the option has a valid value
-				if(compareValue != null) {
+				console.log("comparevalue set to: " + compareValue + ". optionlabel set to: " + optionLabel)
+
+				//check if the option has a valid value, and that the value is not the same as the current correct answer
+				if(compareValue != null && compareValue != recordValue) {
+
+					console.log("comparevalue is valid")
 
 					//add the name of the current option to the answer choice output array
 					quizOptions.push(optionLabel)
 
+					console.log("pushed " + optionLabel + "(" + compareValue + ")")
+
 					//check which item had the highest value
-					if(compareValue > recordValue) {
+					if(compareValue > recordValue || recordValue === null) {
+
+						console.log("new record found. changing record from: " + recordValue + " to " + compareValue)
 
 						//update highest value record
 						recordValue = compareValue
 
 						//set record holder as correct answer
 						correctAnswer = optionLabel
+					} else {
+						console.log(compareValue + " was not greater than " + recordValue + " record is unchanged")
 					}
+				} else {
+					console.log("Option was not suitable and was discarded. Loop will continue.")
 				}
 			}
 
@@ -97,29 +114,45 @@ for(let i = 0; i < quizLimit; i++) {
 
 			recordValue = null
 
+			console.log("lowestvalue: resetting recordValue")
+
 //todo: clean this up by making a reusable function
 			//grab answer options from the solarFacts array until we have enough
 			for(let currentChoiceOption = 0; quizOptions.length <= optionLimit && quizOptions.length <= optionMax; currentChoiceOption++) {
+
+				console.log("choice option loop iteration " + currentChoiceOption + ". current option count: " + quizOptions.length)
 
 				//determine which property we will be comparing
 				compareValue = solarFacts[currentChoiceOption][`${questionTemplates[currentTemplate].comparisonProperty}`]
 				optionLabel = solarFacts[currentChoiceOption][optionType]
 
-				//check if the option has a valid value
-				if(compareValue != null) {
+				console.log("comparevalue set to: " + compareValue + ". optionlabel set to: " + optionLabel)
+
+				//check if the option has a valid value, and that the value is not the same as the current correct answer
+				if(compareValue != null && compareValue != recordValue) {
+
+					console.log("comparevalue is valid")
 
 					//add the name of the current option to the answer choice output array
 					quizOptions.push(optionLabel)
 
+					console.log("pushed " + optionLabel + "(" + compareValue + ")")
+
 					//check which item had the lowest value
-					if(compareValue < recordValue) {
+					if(compareValue < recordValue || recordValue === null) {
+
+						console.log("changing record from: " + recordValue + " to " + compareValue)
 
 						//update lowest value record
 						recordValue = compareValue
 
 						//set record holder as correct answer
 						correctAnswer = optionLabel
+					} else {
+						console.log(compareValue + " was not less than " + recordValue + " record is unchanged")
 					}
+				} else {
+					console.log("Option was not suitable and was discarded. Loop will continue.")
 				}
 			}
 
