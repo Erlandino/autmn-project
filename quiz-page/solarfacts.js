@@ -275,7 +275,7 @@ const solarFacts = [
 	density: 0.70,
 	gravity: 1.065,
 	rotationPeriod: 0.44401,
-	orbitalPeriod: 10,759.22,
+	orbitalPeriod: 10759.22,
 	speed: 9.6724,
 	eccentricity: 0.05415060,
 	temperature: 134
@@ -443,7 +443,7 @@ const solarFacts = [
 	density: 1.30,
 	gravity: 0.904,
 	rotationPeriod: 0.71833	,
-	orbitalPeriod: 30,688.5,
+	orbitalPeriod: 30688.5,
 	speed: 6.8352,
 	eccentricity: 0.04716771,
 	temperature: 76
@@ -569,7 +569,7 @@ const solarFacts = [
 	density: 1.76,
 	gravity: 1.137,
 	rotationPeriod: 0.67125,
-	orbitalPeriod: 60,182,
+	orbitalPeriod: 60182,
 	speed: 5.4778,
 	eccentricity: 0.00858587,
 	temperature: 73
