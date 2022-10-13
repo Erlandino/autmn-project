@@ -6,16 +6,20 @@
 let element = document.getElementById("questionsets")
 let outputMarkup = ""
 
-for(let outputIndex = 0; outputIndex < questionSets.length; outputIndex++) {
+for(let outputQuestionIndex = 0; outputQuestionIndex < questionSets.length; outputQuestionIndex++) {
 
-	outputMarkup += `<fieldset><h3>${questionSets[outputIndex].text}</h3><div class="options">`
+	outputMarkup += `<fieldset><h3>Question ${outputQuestionIndex + 1} of ${questionSets.length}: ${questionSets[outputQuestionIndex].text}</h3><div class="options">`
 
-	for(outputOptionLabel of questionSets[outputIndex].options) {
+	for(let outputOptionIndex = 0;outputOptionIndex < questionSets[outputQuestionIndex].options.length; outputOptionIndex++) {
 
-		outputMarkup += `<button>${outputOptionLabel}</button>`
+		outputMarkup += `<input id="question${outputQuestionIndex}option${outputOptionIndex}" name="question${outputQuestionIndex}" type="radio" value="${outputOptionIndex}" autocomplete="off" required /><label for="question${outputQuestionIndex}option${outputOptionIndex}">${questionSets[outputQuestionIndex].options[outputOptionIndex]}</label>`
 	}
 
 	outputMarkup += '</div></fieldset>'
 }
+
+//add the "go to results" button
+outputMarkup += '<button id="finishquiz">Go to Results</button>'
+
 console.log(outputMarkup)
 element.innerHTML += outputMarkup
