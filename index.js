@@ -14,6 +14,8 @@ function sendToQuizPage() {
   if (nameInputHtml.value) {
     localStorage.setItem("name", nameInputHtml.value);
 
+    localStorage.setItem("score", "0%");
+
     window.location.href = "quiz-page/quiz.html";
   }
 }
