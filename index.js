@@ -4,14 +4,13 @@
  *   putting it in localstorage
  *
  * * * */
-
-console.log("Welcome to Solar Quiz");
-
 const nameInputHtml = document.querySelector("#nameInput");
+
+// adds local storage name if there is any to the name input
 nameInputHtml.value = localStorage.getItem("name");
 
+// sends player to quiz page, adds name to local storage and reset score for local storage
 function sendToQuizPage() {
-  console.log(nameInputHtml.value);
   if (nameInputHtml.value) {
     localStorage.setItem("name", nameInputHtml.value);
 
