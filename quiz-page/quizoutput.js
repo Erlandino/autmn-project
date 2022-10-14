@@ -3,14 +3,14 @@
  *
  * * * */
 
-function checkAnswers(arr) {
+function checkAnswers() {
 
 	let score = 0
 
-	for(let i = 0;i < arr.length; i++) {
-		document.querySelector(`input[name="question${i}"]:checked`).value == arr[i].answer ? ++score : console.log("Answer was incorrect")
+	for(let i = 0;i < questionSets.length; i++) {
+		document.querySelector(`input[name="question${i}"]:checked`).value == questionSets[i].answer ? ++score : console.log("Answer was incorrect")
 	}
-	localStorage.setItem("score", ((100 * score) / arr.length) + "%");
+	localStorage.setItem("score", ((100 * score) / questionSets.length) + "%");
 	window.location.href = "../results-page/result.html";
 }
 
@@ -30,7 +30,7 @@ for(let outputQuestionIndex = 0; outputQuestionIndex < questionSets.length; outp
 }
 
 //add the "go to results" button
-outputMarkup += '<button id="finishquiz" onclick="checkAnswers(questionSets)">Go to Results</button>'
+outputMarkup += '<button id="finishquiz" onclick="checkAnswers()">Go to Results</button>'
 
 element.innerHTML += outputMarkup
 
