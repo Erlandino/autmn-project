@@ -67,8 +67,9 @@ footer {
 }
 
 /* color */
-footer p {
+footer a {
   color: #a6f20d;
+  text-decoration: none;
 }
 
 /* background circles with absolute position, responsive with width %, big is top left, small is bottom right*/

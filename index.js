@@ -8,6 +8,7 @@
 console.log("Welcome to Solar Quiz");
 
 const nameInputHtml = document.querySelector("#nameInput");
+nameInputHtml.value = localStorage.getItem("name");
 
 function sendToQuizPage() {
   console.log(nameInputHtml.value);
