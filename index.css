@@ -110,3 +110,9 @@ footer p {
   width: 40%;
 }
 /* circles end */
+
+/*  */
+#errorName {
+  margin-top: 15px;
+  color: red;
+}

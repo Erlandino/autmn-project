@@ -5,6 +5,7 @@
  *
  * * * */
 const nameInputHtml = document.querySelector("#nameInput");
+const errorNameHtml = document.querySelector("#errorName");
 
 // adds local storage name if there is any to the name input
 nameInputHtml.value = localStorage.getItem("name");
@@ -17,5 +18,7 @@ function sendToQuizPage() {
     localStorage.setItem("score", "0%");
 
     window.location.href = "quiz-page/quiz.html";
+  } else {
+    errorNameHtml.textContent = "You need to enter a name to continue";
   }
 }
