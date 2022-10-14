@@ -33,3 +33,5 @@ for(let outputQuestionIndex = 0; outputQuestionIndex < questionSets.length; outp
 outputMarkup += '<button id="finishquiz" onclick="checkAnswers(questionSets)">Go to Results</button>'
 
 element.innerHTML += outputMarkup
+
+document.querySelector("#playername").innerHTML = localStorage.getItem("name");
