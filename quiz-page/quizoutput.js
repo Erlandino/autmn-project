@@ -5,7 +5,6 @@
 
 function checkAnswers(arr) {
 
-	let value = null
 	let score = 0
 
 	for(let i = 0;i < arr.length; i++) {
@@ -13,7 +12,6 @@ function checkAnswers(arr) {
 	}
 
 	return score
-	console.log("score is " + score)
 }
 
 let element = document.getElementById("questionsets")
