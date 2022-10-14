@@ -99,7 +99,7 @@ for(let i = 0; i < quizLimit; i++) {
 						recordValue = compareValue
 
 						//set record holder as correct answer
-						correctAnswer = optionLabel
+						correctAnswer = quizOptions.length - 1
 					} else {
 						console.log(compareValue + " was not greater than " + recordValue + " record is unchanged")
 					}
@@ -147,7 +147,7 @@ for(let i = 0; i < quizLimit; i++) {
 						recordValue = compareValue
 
 						//set record holder as correct answer
-						correctAnswer = optionLabel
+						correctAnswer = quizOptions.length - 1
 					} else {
 						console.log(compareValue + " was not less than " + recordValue + " record is unchanged")
 					}
