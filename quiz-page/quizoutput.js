@@ -10,7 +10,7 @@ function checkAnswers(arr) {
 	for(let i = 0;i < arr.length; i++) {
 		document.querySelector(`input[name="question${i}"]:checked`).value == arr[i].answer ? ++score : console.log("Answer was incorrect")
 	}
-	localStorage.setItem("score", score);
+	localStorage.setItem("score", ((100 * score) / arr.length) + "%");
 	window.location.href = "../results-page/result.html";
 }
 
