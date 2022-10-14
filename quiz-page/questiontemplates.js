@@ -146,7 +146,7 @@ const questionTemplates = [
 	optionType: "name",
 	score: 140 },
 {
-	text: "Which of the following <strong>is furthest to The Sun</strong>?",
+	text: "Which of the following <strong>is furthest from The Sun</strong>?",
 	type: "highestValue",
 	comparisonProperty: "distance",
 	optionType: "name",
