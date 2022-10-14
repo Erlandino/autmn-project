@@ -10,8 +10,8 @@ function checkAnswers(arr) {
 	for(let i = 0;i < arr.length; i++) {
 		document.querySelector(`input[name="question${i}"]:checked`).value == arr[i].answer ? ++score : console.log("Answer was incorrect")
 	}
-
-	return score
+	localStorage.setItem("score", score);
+	window.location.href = "../results-page/result.html";
 }
 
 let element = document.getElementById("questionsets")
