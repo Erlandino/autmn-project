@@ -70,7 +70,7 @@ for(let i = 0; i < quizLimit; i++) {
 			console.log("highestvalue: resetting recordValue")
 
 			//grab answer options from the solarFacts array until we have enough
-			for(let currentChoiceOption = 0; quizOptions.length <= optionLimit && quizOptions.length <= optionMax; currentChoiceOption++) {
+			for(let currentChoiceOption = 0; quizOptions.length <= optionLimit && quizOptions.length < optionMax; currentChoiceOption++) {
 
 				console.log("choice option loop iteration " + currentChoiceOption + ". current option count: " + quizOptions.length)
 
@@ -118,7 +118,7 @@ for(let i = 0; i < quizLimit; i++) {
 
 //todo: clean this up by making a reusable function
 			//grab answer options from the solarFacts array until we have enough
-			for(let currentChoiceOption = 0; quizOptions.length <= optionLimit && quizOptions.length <= optionMax; currentChoiceOption++) {
+			for(let currentChoiceOption = 0; quizOptions.length <= optionLimit && quizOptions.length < optionMax; currentChoiceOption++) {
 
 				console.log("choice option loop iteration " + currentChoiceOption + ". current option count: " + quizOptions.length)
 
